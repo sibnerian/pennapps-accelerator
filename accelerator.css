@@ -1,0 +1,89 @@
+@font-face {
+  font-family: 'Hotrod';
+  src: url('hotrod.ttf');
+}
+
+div.header{
+	color: #E3170D;
+	-webkit-text-fill-color: #E3170D; /* Will override color (regardless of order) */
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: white;
+}
+
+img.logo{
+	width: 203px;
+	height: 30px;
+}
+
+div.header{
+	font-family: "Hotrod", "Impact", sans-serif;
+}
+
+@media (min-width: 637px){
+	html{
+		height: 100%;
+		width: 100%;
+		background-color: black;
+	}
+
+	#background-image{
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	    bottom: 0;
+	    right: 0;
+		background-image: url("accelerator.jpg");
+		background-size: 100% 100%;
+		filter: blur(5px);
+		-webkit-filter: blur(5px);
+		-moz-filter: blur(5px);
+		-o-filter: blur(5px);
+		-ms-filter: blur(5px);
+	}
+
+	body{
+		height: 100%;
+		width: 100%;
+	}
+
+	.container{
+		width: 100%;
+		height: 100%;
+	}
+
+	div.header-container{
+		position: absolute;
+		padding-left: 1%;
+		left: 50%;
+		top: 12%;
+		z-index: 11;
+		clear:both;
+	}
+
+	div.header{
+		margin-left: -50%;
+		font-size: 120pt;
+	}
+
+	img.logo{
+		position:absolute; /*relative to its contaniner */
+		left: -50%;
+	}
+
+}
+
+@media (max-width: 637px){
+	html{
+		background-color: #000026;
+	}
+
+	body{
+		padding-top: 30px;
+	}
+
+	div.header{
+		font-size: 80pt;
+		line-height: 40pt;
+	}
+
+}
