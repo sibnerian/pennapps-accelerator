@@ -6,3 +6,5 @@
 standard-app-packages
 preserve-inputs
 jquery
+bootstrap3-less
+less
