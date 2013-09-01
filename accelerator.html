@@ -6,16 +6,33 @@
 </body>
 
 <template name="layout">
+	<div id="background-image"></div>
 	{{yield 'navbar'}}
 
 	{{yield}}
 </template>
 
 <template name="home">
-	<div id="background-image"></div>
 	<div class="header-container">
 		<img class="logo" src="logo.png">
 		<div class="header">accelerator</div>
+	</div>
+</template>
+
+<template name="notFound">
+	<div class="container errormessage">
+		<div class="hero-unit center">
+			<div class="col-sm-12">
+			    <h1>Error 404 - Page Not Found </h1>
+			</div>
+		    <br>
+		    <div class="col-md-8 col-md-offset-2 col-sm-12">
+			    <p>The page you requested could not be found, change your URL and try again. Use your browsers <b>Back</b> button to navigate to the page you have prevously come from.</p>
+			    <br>
+			    <p><b>Or you could just press this neat little button:</b></p>
+			   	<a href="{{urlFor 'home'}}" class="btn btn-large btn-info"><i class="glyphicon glyphicon-home"></i> Take Me Home</a>
+			</div>
+	  </div>
 	</div>
 </template>
 
