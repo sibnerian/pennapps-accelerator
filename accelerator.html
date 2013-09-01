@@ -3,6 +3,23 @@
 </head>
 
 <body>
+</body>
+
+<template name="layout">
+	{{yield 'navbar'}}
+
+	{{yield}}
+</template>
+
+<template name="home">
+	<div id="background-image"></div>
+	<div class="header-container">
+		<img class="logo" src="logo.png">
+		<div class="header">accelerator</div>
+	</div>
+</template>
+
+<template name="navbar">
 	<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
 	  <div class="container" id="navbar">
 	    <div class="navbar-header">
@@ -29,9 +46,4 @@
 	    </nav>
 	  </div>
 	</header>
-	<div id="background-image"></div>
-	<div class="header-container">
-		<img class="logo" src="logo.png">
-		<div class="header">accelerator</div>
-	</div>
-</body>
+</template>
