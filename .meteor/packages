@@ -8,3 +8,4 @@ preserve-inputs
 jquery
 bootstrap3-less
 less
+coffeescript
