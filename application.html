@@ -1,64 +1,110 @@
 <template name="application">
 	<div class="container application">
+		<div class="row">
+			<div class="col-lg-offset-3 col-lg-7">
+				<h1>Idea Information</h1>
+			</div>
+		</div>
+		{{> startupQuestions}}
+		<div class="row">
+			<div class="col-lg-offset-3 col-lg-7">
+				<h1>Team Information</h1>
+			</div>
+		</div>
 		{{#each members}}
 			{{> applicant }}
 		{{/each}}
+		<form class='form-horizontal'>
+		  <div class="form-group">
+		    <div class="col-lg-offset-3 col-lg-7">
+		      	<span type="submit" id="submit" class="btn btn-default pull-right">Submit</span>
+		    </div>
+		  </div>
+		</form>
 	</div>
 </template>
 
+<template name="startupQuestions">
+	<form class="form-horizontal startupQuestions">
+	  <div class="form-group">
+	    <div class="col-lg-offset-3 col-lg-7">
+	      	<label for="describe">Describe your startup.</label>
+	      	<textarea class="form-control" rows="3" placeholder="PennApps will regard any information pertaining to your start-up as your personal IP; all information is kept strictly confidential."></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-lg-offset-3 col-lg-7">
+	      	<label for="describe">Where is your start-up now?</label>
+	      	<textarea class="form-control" rows="3" placeholder="Please include a link to a prototype if you have one."></textarea>
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <div class="col-lg-offset-3 col-lg-7">
+	      	<label for="describe">What are your goals for the 8 week Accelerator program?</label>
+	      	<textarea class="form-control" rows="3" placeholder="Be concrete; don't say &quot;Recruit users,&quot; but rather &quot;Recruit 300 new users.&quot;"></textarea>
+	    </div>
+	  </div>
+
+	</form>
+</template>
+
 <template name="applicant">
-	<form class="form-horizontal" role="form">
+	<form class="form-horizontal applicant" index="{{index}}" role="form" autocomplete="on" method="POST" action="javascript:void(0)">
 	  <div class="form-group">
-	    <label for="inputName1" class="col-lg-3 control-label">Name</label>
+	    <label for="inputName{{index}}" class="col-lg-3 control-label">Name</label>
 	    <div class="col-lg-7">
-	      <input type="text" class="form-control" id="inputName1" placeholder="Name">
+	      <input type="text" class="form-control name" id="inputName{{index}}" placeholder="Name">
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label for="inputEmail1" class="col-lg-3 control-label">Email</label>
+	    <label for="inputEmail{{index}}" class="col-lg-3 control-label">Email</label>
 	    <div class="col-lg-7">
-	      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+	      <input type="email" class="form-control email" id="inputEmail{{index}}" placeholder="Email">
 	    </div>
 	  </div>
 	  <div class="form-group">
-	    <label for="phoneNumber" class="col-lg-3 control-label">Phone</label>
+	    <label for="phoneNumber{{index}}" class="col-lg-3 control-label">Phone</label>
 	    <div class="col-lg-7">
-	      <input type="text" class="form-control" id="phoneNumber" placeholder="Phone number">
+	      <input type="text" class="form-control phone" id="phoneNumber{{index}}" placeholder="Phone number">
 	    </div>
 	  </div>
 	   <div class="form-group">
-	    <label for="fieldsOfStudy" class="col-lg-3 control-label">Field(s) of study</label>
+	    <label for="fieldsOfStudy{{index}}" class="col-lg-3 control-label">Field(s) of study</label>
 	    <div class="col-lg-7">
-	      <input type="text" class="form-control" id="fieldsOfStudy" placeholder="Field(s) of study">
+	      <input type="text" class="form-control fieldsOfStudy" id="fieldsOfStudy{{index}}" placeholder="Field(s) of study">
 	    </div>
 	  </div>
 	  <div class="form-group">
 	  	<label class="col-lg-3 control-label">Class Year</label>
-	  	<div class="col-lg-7 checkboxes">
+	  	<div class="col-lg-7 checkboxes classYear">
 		  	<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox1" value="option1"> 2014
+			  <input type="checkbox" id="inlineCheckbox{{index}}-1" value="2014"> 2014
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2015
+			  <input type="checkbox" id="inlineCheckbox2" value="2015"> 2015
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" value="option3"> 2016
+			  <input type="checkbox" id="inlineCheckbox{{index}}-3" value="2016"> 2016
 			</label>
 			<label class="checkbox-inline">
-			  <input type="checkbox" id="inlineCheckbox3" value="option3"> 2017
+			  <input type="checkbox" id="inlineCheckbox{{index}}-3" value="2017"> 2017
 			</label>
 	  	</div>
 	  </div>
 	  <div class="form-group">
-	    <label for="relevantLinks" class="col-lg-3 control-label">Relevant links</label>
+	    <label for="relevantLinks{{index}}" class="col-lg-3 control-label">Relevant links</label>
 	    <div class="col-lg-7">
-	      <textarea class="form-control" id="relevantLinks" rows="3" placeholder="Relevant links – LinkedIn, Github, resume, descriptions of past projects, or anything else that will help us make a decision"></textarea>
+	      <textarea class="form-control relevantLinks" id="relevantLinks{{index}}" rows="3" placeholder="Relevant links – LinkedIn, Github, resume, descriptions of past projects, or anything else that will help us make a decision"></textarea>
 	  	</div>
 	  </div>	  
 	  <div class="form-group">
 	    <div class="col-lg-offset-3 col-lg-7">
-	      <button type="submit" class="btn btn-default">Submit</button>
-	      <span class="btn btn-info addMember pull-right">Add Team Member+</span>
+	      {{#if showAddButton}}
+	      	<span class="btn btn-large btn-info addMember pull-right"><i class="glyphicon glyphicon-plus"></i> Add Team Member</span>
+	      {{else}}
+	      	<hr>
+	      {{/if}}
+
 	    </div>
 	  </div>
 	</form>
