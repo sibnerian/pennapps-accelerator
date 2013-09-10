@@ -1,13 +1,21 @@
 /* import glyphicons from external repository */
-@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url("http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+@import url(http://fonts.googleapis.com/css?family=Roboto:900,700,500,400);
 @import "/packages/bootstrap3-less/bootstrap.lessimport";
+
 
 @logo-width: 203px;
 @logo-height: 35px;
 
+@firetruck-red: #E3170D;
+@frost: lighten(#7AA3BF, 20%);
+
+@content-padding: 20px;
+
 body{
-	padding-top: @navbar-height + 20px;
+	padding-top: @navbar-height + @content-padding;
 	padding-left: 10px;
+	font-family: 'Roboto', sans-serif !important;
 }
 
 #navbar{
@@ -27,7 +35,7 @@ nav a{
 
 div.header{
 	line-height: 1;
-	color: #E3170D;
+	color: @firetruck-red;
 
    text-shadow:
        3px 3px 0 #000,
@@ -47,6 +55,76 @@ div.header{
 	font-family: "Hotrod", "Impact", sans-serif;
 }
 
+
+.blurb{
+	font-size: 22pt; 
+	font-weight: 500;
+	color: @frost;
+}
+
+.about{
+	font-size: 18pt;
+	font-weight: 500;
+	color: @frost;
+}
+
+.about{
+	padding-bottom: @content-padding;
+
+	ul{
+		margin: 10px 20px;
+	}
+
+}
+
+.application{
+	color: @frost;
+
+	label{
+		cursor: pointer;
+	}
+
+	textarea{
+		border-radius: 4px;
+	}
+	.checkboxes{
+		font-size: 16px;
+	}
+}
+
+h1{
+	font-weight: bold;
+	color: @firetruck-red;
+}
+
+/* 404 page */
+
+.errormessage{
+	color: #000;
+	background-color: rgba(238, 238, 238, 0.7);
+	padding: 0px 0px 20px;
+	position: relative;
+	h1{
+		font-size: 60px;
+		font-weight: bold;
+	}
+
+	p{
+		font-size: 1.5em;
+	}
+
+	.btn{
+		font-size: 20px;
+	}
+}
+
+.center {text-align: center; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto;}
+
+
+
+/* Media queries for different screen sizes */
+
+
 @media (min-width: 637px){
 
 	.mobile-only{
@@ -65,7 +143,7 @@ div.header{
 	    left: 0;
 	    bottom: 0;
 	    right: 0;
-		background-image: url("accelerator.jpg");
+		background-image: url("accelerator2.gif");
 		background-size: 100% 100%;
 		filter: blur(@blur-radius);
 		-webkit-filter: blur(@blur-radius);
@@ -99,7 +177,12 @@ div.header{
 		left: -50%;
 	}
 
+	.blurb{
+		margin-left: -100%;
+	}
+
 }
+
 
 @media (max-width: 637px){
 	html, body{
@@ -112,29 +195,3 @@ div.header{
 	}
 
 }
-
-/* 404 page */
-
-.container{
-}
-.errormessage{
-	color: #000;
-	background-color: rgba(238, 238, 238, 0.7);
-	padding: 0px 0px 20px;
-	position: relative;
-	h1{
-		font-size: 60px;
-		font-weight: bold;
-	}
-
-	p{
-		font-size: 1.5em;
-	}
-
-	.btn{
-		font-size: 20px;
-	}
-}
-
-.center {text-align: center; margin-left: auto; margin-right: auto; margin-bottom: auto; margin-top: auto;}
-

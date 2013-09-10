@@ -1,0 +1,65 @@
+<template name="application">
+	<div class="container application">
+		{{#each members}}
+			{{> applicant }}
+		{{/each}}
+	</div>
+</template>
+
+<template name="applicant">
+	<form class="form-horizontal" role="form">
+	  <div class="form-group">
+	    <label for="inputName1" class="col-lg-3 control-label">Name</label>
+	    <div class="col-lg-7">
+	      <input type="text" class="form-control" id="inputName1" placeholder="Name">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="inputEmail1" class="col-lg-3 control-label">Email</label>
+	    <div class="col-lg-7">
+	      <input type="email" class="form-control" id="inputEmail1" placeholder="Email">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	    <label for="phoneNumber" class="col-lg-3 control-label">Phone</label>
+	    <div class="col-lg-7">
+	      <input type="text" class="form-control" id="phoneNumber" placeholder="Phone number">
+	    </div>
+	  </div>
+	   <div class="form-group">
+	    <label for="fieldsOfStudy" class="col-lg-3 control-label">Field(s) of study</label>
+	    <div class="col-lg-7">
+	      <input type="text" class="form-control" id="fieldsOfStudy" placeholder="Field(s) of study">
+	    </div>
+	  </div>
+	  <div class="form-group">
+	  	<label class="col-lg-3 control-label">Class Year</label>
+	  	<div class="col-lg-7 checkboxes">
+		  	<label class="checkbox-inline">
+			  <input type="checkbox" id="inlineCheckbox1" value="option1"> 2014
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="inlineCheckbox2" value="option2"> 2015
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="inlineCheckbox3" value="option3"> 2016
+			</label>
+			<label class="checkbox-inline">
+			  <input type="checkbox" id="inlineCheckbox3" value="option3"> 2017
+			</label>
+	  	</div>
+	  </div>
+	  <div class="form-group">
+	    <label for="relevantLinks" class="col-lg-3 control-label">Relevant links</label>
+	    <div class="col-lg-7">
+	      <textarea class="form-control" id="relevantLinks" rows="3" placeholder="Relevant links – LinkedIn, Github, resume, descriptions of past projects, or anything else that will help us make a decision"></textarea>
+	  	</div>
+	  </div>	  
+	  <div class="form-group">
+	    <div class="col-lg-offset-3 col-lg-7">
+	      <button type="submit" class="btn btn-default">Submit</button>
+	      <button class="btn btn-info addMember pull-right">Add Team Member+</button>
+	    </div>
+	  </div>
+	</form>
+</template>
