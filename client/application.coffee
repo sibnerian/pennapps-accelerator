@@ -43,4 +43,10 @@ Template.application.events
                 classYear:  $(this).find('.classYear').find(':checked').first().val()
                 relevantLinks: $(this).find('.relevantLinks').val()
             members.push member
-        console.log members
+        application = 
+            members: members
+            description: $('#description').val()
+            whereIsStartup: $('#whereIsStartup').val()
+            goals: $('#goals').val()
+        Meteor.call "addResponse", application, (err, res)->
+            console.log 'success'

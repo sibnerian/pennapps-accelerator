@@ -1,0 +1,52 @@
+<template name="admin">
+  <div class="container admin">
+  {{#if hasSubmissions }}
+    {{#each submissions}}
+      {{> submission}}
+    {{/each}}
+  {{else}}
+      <form class="form-horizontal startupQuestions">
+            <div class="form-group">
+              <div class="col-lg-offset-3 col-lg-7">
+                  <label for="name">Username:</label>
+                  <input type="text" id="name" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-3 col-lg-7">
+                  <label for="password">Password:</label>
+                  <input type="password" id="password" class="form-control">
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-lg-offset-3 col-lg-7">
+                  <span class="btn btn-primary pull-right" id="submit">Submit</span>
+              </div>
+            </div>
+      </form>
+  {{/if}}
+  </div>
+</template>
+
+<template name="submission">
+  <div class="col-sm-8 col-sm-offset-2">
+      <p>Description: {{description}}</p>
+      <p>Where is Startup at: {{whereIsStartup}}</p>
+      <p>Goals: {{goals}}
+      <h2>Members:</h2>
+      {{#each members}}
+        {{> member}}
+      {{/each}}
+      <hr>
+  </div>
+</template>
+<template name="member">
+  <h3>Teammate: {{teamMemberIndex}}</h3>
+  <p>Name: {{name}}</p>
+  <p>Email: {{email}}</p>
+  <p>Phone: {{phone}}</p>
+  <p>Fields of Study: {{fieldsOfStudy}}</p>
+  <p>Class Year: {{classYear}}</p>
+  <p>Relevant Links: {{relevantLinks}}</p>
+</template>
+

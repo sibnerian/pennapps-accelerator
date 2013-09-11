@@ -8,9 +8,13 @@ Router.map ->
 	@route 'apply', {path: '/apply'}, ()->
 		@render('navbar', {to: 'navbar', data: false})
 		@render('application')
+	@route 'admin', {path: '/admin'}, ()->
+		@render('navbar', {to: 'navbar', data: false})
+		@render('admin')
 	@route 'notFound', { path: '*' }, ()->
 		@render('navbar', {to: 'navbar', data: false})
 		@render('notFound')
+
 
 
 

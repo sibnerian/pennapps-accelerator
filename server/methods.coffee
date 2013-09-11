@@ -4,7 +4,9 @@ Meteor.methods
         Responses.insert teamObject
         return true
     getResponses: (username, password)->
-        if username = Meteor.settings["admin-username"] and 
-            password = Meteor.settings["admin-password"]
-                return Responses.find({}, {sort: {createdAt: 1}}).fetch()
-
+        right_user = Meteor.settings["admin-username"]
+        right_password = Meteor.settings["admin-password"]
+        if right_user != username or right_password != password
+            return false
+        else
+            return Responses.find({}, {sort: {createdAt: 1}}).fetch()
