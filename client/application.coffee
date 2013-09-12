@@ -12,19 +12,22 @@ newMemberObject = ()->
     index: counter
 
 Session.set("members", [newMemberObject()])
+Session.set("app-errors", false)
 
 
 
 Template.applicant.events
     "click .addMember": (event, template)->
-        if counter <= 4
+        if counter < 4
             arr = Session.get("members")
             arr.push newMemberObject()
             Session.set("members", arr)
 
 Template.applicant.helpers
     showAddButton: ()->
-        @teamMemberIndex == counter and counter <= 4
+        @teamMemberIndex == counter and counter < 4
+    errors: ()->
+        Session.get("app-errors")
 
 Template.application.helpers
     members: ()->
@@ -49,4 +52,8 @@ Template.application.events
             whereIsStartup: $('#whereIsStartup').val()
             goals: $('#goals').val()
         Meteor.call "addResponse", application, (err, res)->
-            console.log 'success'
+            if res.accepted == true
+                Session.set('applied', true)
+                Router.go('/')
+            else
+                Session.set('app-errors', true)
