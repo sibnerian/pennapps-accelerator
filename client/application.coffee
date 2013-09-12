@@ -1,5 +1,18 @@
 counter = 0
 
+humanReadable = (list)->
+    if list.length is 1
+        return list[0]
+    if list.length is 2
+        return list[0] + ' and ' + list[1]
+    [list[0...-1].join(", "), list[list.length-1]].join(", and ")
+
+readability_map =
+    members: "Team members"
+    description: "startup description"
+    whereIsStartup: "where your startup is now"
+    goals: "startup goals"
+
 newMemberObject = ()->
     counter++
     name: ""
@@ -24,19 +37,17 @@ Template.applicant.events
             Session.set("members", arr)
 
 Template.applicant.helpers
-    showAddButton: ()->
+    showAddButton: ->
         @teamMemberIndex == counter and counter < 4
-    errors: ()->
-        Session.get("app-errors")
 
 Template.application.helpers
-    members: ()->
-        return Session.get "members"
+    members: -> Session.get "members"
+    errors: -> Session.get("app-errors")
 
 Template.application.events
-    'click #submit': ()->
+    'click #submit': ->
         members = []
-        $('.applicant').each ()->
+        $('.applicant').each ->
             member = 
                 teamMemberIndex: $(this).attr('index')
                 name: $(this).find('.name').val()
@@ -56,4 +67,5 @@ Template.application.events
                 Session.set('applied', true)
                 Router.go('/')
             else
-                Session.set('app-errors', true)
+                Session.set('app-errors', humanReadable(_.map(res.errors, (val)-> '"' + readability_map[val] + '"')) )
+                window.scrollTo(0, 0);
