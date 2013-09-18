@@ -4,8 +4,8 @@
 @import "/packages/bootstrap3-less/bootstrap.lessimport";
 
 
-@logo-width: 203px;
-@logo-height: 35px;
+@logo-width: 200px;
+@logo-height: 180px;
 
 @firetruck-red: #E3170D;
 @frost: lighten(#7AA3BF, 20%);
@@ -178,13 +178,14 @@ h1{
 		position: absolute;
 		padding-left: 1%;
 		left: 50%;
-		top: 15%;
+		top: 10%;
 		z-index: 11;
 		clear:both;
 		width: 554px;
 	}
 
 	div.header{
+		margin-top: @logo-height - 30px;
 		margin-left: -50%;
 		font-size: 120pt;
 	}
@@ -192,7 +193,9 @@ h1{
 	img.logo{
 		position:absolute; /*relative to its contaniner */
 		top: 7.5px;
-		left: -50%;
+		margin-left: -25%;
+		border-image: none !important;
+		border: 0 !important;
 	}
 
 	.blurb{

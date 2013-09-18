@@ -12,3 +12,4 @@ coffeescript
 iron-router
 moment
 underscore
+spiderable

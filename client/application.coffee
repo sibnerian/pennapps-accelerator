@@ -27,8 +27,6 @@ newMemberObject = ()->
 Session.set("members", [newMemberObject()])
 Session.set("app-errors", false)
 
-
-
 Template.applicant.events
     "click .addMember": (event, template)->
         if counter < 4
